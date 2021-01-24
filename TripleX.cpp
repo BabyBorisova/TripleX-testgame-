@@ -8,10 +8,11 @@ int main()
     cout << "Ten magically sealed doors lead to the treasure room" << endl;
     cout << "Unlock these doors to collect your prize but beware of traps" << endl;
     cout << endl;
-    cout << "  /-----\\  " <<endl;
-    cout << "  | / \\ |  " <<endl;
-    cout << "  | \\ / |  " <<endl;
-    cout << "  |     |  " <<endl;
-    cout << "  |_____|  " <<endl;        
+		cout << "   _____    " << endl;
+    cout << "  /     \\  " << endl;
+    cout << "  | / \\ |  " << endl;
+    cout << "  | \\ / |  " << endl;
+    cout << "  |o    |   " << endl;
+    cout << "  |_____|   " << endl;        
     return 0;
 }

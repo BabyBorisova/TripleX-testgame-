@@ -1,5 +1,14 @@
-all:TripleX.o
-	g++ -o TripleX TripleX.o
+CC = g++
+CFLAGS = -g -Wall
+TARGET = TripleX
+
+run: all
+	./$(TARGET)
+
+all: $(TARGET)
+
+$(TARGET): $(TARGET).cpp
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp 
 
 clean:
-	$(RM) TripleX TripleX.o
+	$(RM) $(TARGET)
