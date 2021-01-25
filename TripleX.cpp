@@ -5,7 +5,6 @@ using namespace std;
 
 //initializes variables
 const unsigned int maxDiff = 12;
-unsigned int diff = 2;
 unsigned int a, b, c, sum, prod;
 unsigned int guessA, guessB, guessC, guessSum, guessProd;
 
@@ -26,7 +25,7 @@ void PrintIntro()
   cout << "  |_____|\n";
 }
 
-bool PlayGame()
+bool PlayGame(int diff)
 {
 	//random code generation
 	a = rand()%diff + diff;
@@ -49,28 +48,46 @@ bool PlayGame()
 	// checks players guess
 	if ((guessSum == sum && guessProd == prod))
 	{
-		cout << "\nYou broke the seal\n\n";
 		return true;
 	}
 	else
 	{
-		cout << "\nThe light of the seal intensifies";
-		cout << "\nThe seal explodes and knocks you unconcious\n\n";
 		return false;
 	}
 }
 
 int main()
 {
-	
+	unsigned int diff = 2;
 
 	PrintIntro();
 
+	// game loop
 	while (true)
 	{
-		PlayGame();
+		bool levelComplete = PlayGame(diff);
 		cin.clear();
 		cin.ignore();
+
+		if (levelComplete) 
+		{
+			++diff;
+			if (diff > maxDiff)
+			{
+				cout << "\nGolden light shines beyond the final door\nYou hvae made it to the tresure room\n";
+				break;
+			}
+			else
+			{
+				cout << "\nYou broke the seal and approach the next door\n";
+			}
+		}
+		else
+		{
+			cout << "\nThe light of the seal intensifies\n";
+			cout << "The seal explodes and knocks you unconcious\n";
+			break;
+		}
 	}
 
 	
