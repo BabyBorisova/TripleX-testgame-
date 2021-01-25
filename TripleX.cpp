@@ -6,26 +6,24 @@ using namespace std;
 int main()
 {
 	//initializes variables
-	const unsigned int maxDiff = 10;
-	unsigned int diff = 1;
-	unsigned int a, b, c;
-	unsigned int sum;
-	unsigned int prod;
-	unsigned int guessA, guessB, guessC;
+	const unsigned int maxDiff = 12;
+	unsigned int diff = 2;
+	unsigned int a, b, c, sum, prod;
+	unsigned int guessA, guessB, guessC, guessSum, guessProd;
 
 	//entry text
 	cout << endl;
-  cout << "You are an explorer searching ancient ruins of Ka'bal" << endl;
-  cout << "Magically sealed doors block your path" << endl;
-  cout << "Enter the correct runes to get to the treasure room" << endl;
-  cout << endl;
+  cout << "You are an explorer searching ancient ruins of Ka'bal\n";
+  cout << "Magically sealed doors block your path\n";
+  cout << "Enter the correct runes to get to the treasure room\n\n";
+
 	//ascii logo
-	cout << "   _____    " << endl;
-  cout << "  /     \\  " << endl;
-  cout << "  | / \\ |  " << endl;
-  cout << "  | \\ / |  " << endl;
-  cout << "  |o    |   " << endl;
-  cout << "  |_____|   " << endl;
+	cout << "   _____\n";
+  cout << "  /     \\\n";
+  cout << "  | / \\ |\n";
+  cout << "  | \\ / |\n";
+  cout << "  |o    |\n";
+  cout << "  |_____|\n";
 
 	//game loop
 	while (diff < maxDiff)
@@ -37,15 +35,27 @@ int main()
 		sum = a + b + c;
 		prod = a * b * c;
 		//game info
-		cout << "You approach the door..." << endl;
-		cout << "* The seal has three runes" << endl;
-		cout << "* The sum of the runes is " << sum << endl;
-		cout << "* The product of the runes is " << prod << endl;
+		cout << "You approach the door...";
+		cout << "\n* The seal has three runes";
+		cout << "\n* The sum of the runes is " << sum;
+		cout << "\n* The product of the runes is " << prod;
 
-		cin >> guessA;
-		cin >> guessB;
-		cin >> guessC;
-		cout << "You entered " << guessA << guessB << guessC << endl;
+		// takes player guess input
+		cin >> guessA >> guessB >> guessC;
+		guessSum = guessA + guessB + guessC;
+		guessProd = guessA * guessB * guessC;
+
+		// checks players guess
+		if ((guessSum == sum) && (guessProd == prod))
+		{
+			cout << "\nYou broke the seal" << endl;
+			++diff;
+		}
+		else
+		{
+			cout << "\nThe light of the seal intensifies" << endl;
+			cout << "\nThe seal explodes and knocks you unconcious" << endl;
+		}
 	}
   return 0;
 }
